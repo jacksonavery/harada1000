@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://jsj17ltf8lqu"]
+
+[ext_resource type="Script" path="res://operator.gd" id="1_mhkmw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpxsg"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_shtqb"]
+line_spacing = 0.0
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Operator" type="Node2D"]
+script = ExtResource("1_mhkmw")
+
+[node name="ColorRect" type="Panel" parent="."]
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 16.0
+offset_bottom = 24.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rpxsg")
+
+[node name="DirIndicator" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="DirIndicator"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -27.5
+offset_right = 30.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+text = ">"
+label_settings = SubResource("LabelSettings_shtqb")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://by4olnvbedmyn"]
+
+[ext_resource type="Script" path="res://opinfo.gd" id="1_jesxt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6jvwv"]
+line_spacing = 0.0
+font_size = 32
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 135.0
+offset_bottom = 78.0
+size_flags_horizontal = 0
+script = ExtResource("1_jesxt")
+
+[node name="OpInfo" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="ColorRect" type="ColorRect" parent="OpInfo"]
+custom_minimum_size = Vector2(54, 80)
+layout_mode = 2
+
+[node name="OpInfo" type="VBoxContainer" parent="OpInfo"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OpInfo/OpInfo"]
+layout_mode = 2
+text = "[32]"
+label_settings = SubResource("LabelSettings_6jvwv")
+
+[node name="Label2" type="Label" parent="OpInfo/OpInfo"]
+layout_mode = 2
+text = " ` `"
+label_settings = SubResource("LabelSettings_6jvwv")

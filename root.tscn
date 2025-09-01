@@ -1,0 +1,133 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpkn27wb4a2hy"]
+
+[ext_resource type="Script" path="res://map_manager.gd" id="1_sxlir"]
+[ext_resource type="Script" path="res://indicator.gd" id="2_dx8h0"]
+[ext_resource type="Script" path="res://cam.gd" id="3_q0sn3"]
+[ext_resource type="Script" path="res://operator_gui.gd" id="4_y4vxk"]
+[ext_resource type="Script" path="res://input_labels.gd" id="5_yqmkn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_udduq"]
+line_spacing = 0.0
+font_size = 48
+
+[node name="Node" type="Node"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Tiles" type="Node2D" parent="Node2D"]
+script = ExtResource("1_sxlir")
+
+[node name="Operators" type="Node2D" parent="Node2D/Tiles"]
+
+[node name="Timer" type="Timer" parent="Node2D/Tiles"]
+wait_time = 0.25
+
+[node name="Indicator" type="ColorRect" parent="Node2D/Tiles"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 16.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.266667)
+script = ExtResource("2_dx8h0")
+
+[node name="Timer" type="Timer" parent="Node2D/Tiles/Indicator"]
+wait_time = 0.5
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="Node2D"]
+script = ExtResource("3_q0sn3")
+
+[node name="Control" type="Control" parent="Node2D/Camera2D"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Node2D/Camera2D/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="OperatorInfo" type="VBoxContainer" parent="Node2D/Camera2D/Control/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+script = ExtResource("4_y4vxk")
+
+[node name="OutputGrader" type="PanelContainer" parent="Node2D/Camera2D/Control/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/Camera2D/Control/HBoxContainer/OutputGrader"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Node2D/Camera2D/Control/HBoxContainer/OutputGrader/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Node2D/Camera2D/Control/HBoxContainer/OutputGrader/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Input  : "
+label_settings = SubResource("LabelSettings_udduq")
+
+[node name="InputLabels" type="HBoxContainer" parent="Node2D/Camera2D/Control/HBoxContainer/OutputGrader/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 32
+script = ExtResource("5_yqmkn")
+
+[node name="InputLabel" type="TextEdit" parent="Node2D/Camera2D/Control/HBoxContainer/OutputGrader/VBoxContainer/HBoxContainer2/InputLabels"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "whjne"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Node2D/Camera2D/Control/HBoxContainer/OutputGrader/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Node2D/Camera2D/Control/HBoxContainer/OutputGrader/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Desired: "
+label_settings = SubResource("LabelSettings_udduq")
+
+[node name="InputLabels" type="HBoxContainer" parent="Node2D/Camera2D/Control/HBoxContainer/OutputGrader/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 32
+script = ExtResource("5_yqmkn")
+
+[node name="InputLabel" type="Label" parent="Node2D/Camera2D/Control/HBoxContainer/OutputGrader/VBoxContainer/HBoxContainer3/InputLabels"]
+layout_mode = 2
+text = "32"
+label_settings = SubResource("LabelSettings_udduq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/Camera2D/Control/HBoxContainer/OutputGrader/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Node2D/Camera2D/Control/HBoxContainer/OutputGrader/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Output : "
+label_settings = SubResource("LabelSettings_udduq")
+
+[node name="OutputLabel" type="Label" parent="Node2D/Camera2D/Control/HBoxContainer/OutputGrader/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_udduq")

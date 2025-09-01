@@ -1,0 +1,44 @@
+HARADA1000
+
+0-9 pushes that number to stack
+a-z pushes the ascii value of the letter to stack
+
+x	!	move -pop(a) if pop(b) not 0
+x	@	turn "left" if not 0
+x	#	turn "right" if not 0
+x	$	pop and discard
+x	%	mod 
+x	^	dir up
+x	&	pop and b and read as a hex digit (0 for illegals)
+x	*	mult
+x	(	push raw read from "left"
+x	)	push raw read from "right"
+x	-	sub
+x	_	spawn an operator below
+x	=	push 1 if a==b, else 0
+x	+	add
+x	[	pop and write raw to "left"
+x	]	pop and write raw to "right"
+x	{	spawn point for an operator
+x	}	stalls an operator
+x	\	swap
+x	|	get an int (decodes alphanumeric to base 52)
+x	;	pop and print as b10 integer
+x	:	dupe top value
+x	'	jump 1 space
+x	"	jump pop a spaces
+x	,	go down
+x	.	pop and print
+x	<	dir left
+x	>	dir right
+x	/	divide
+x	?	read string in
+x	`	greater than
+
+levels:
+	factorial
+	pow (technically requires 3 inputs afaik)
+	sum of all numbers beneath (with n+1*(n/2) as a bonus solution)
+	average args[v] numbers
+	99 bottles of beer printer
+	create a 2d6 distribution?
