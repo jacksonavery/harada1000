@@ -133,9 +133,17 @@ func update(c: String, input_label: Node, tile_holder: Node):
 			pushi(int(input_label.get_next()))
 		# save and load to map
 		"(":
-			tile_holder.operator_place_tile(pos + rotate_vec2i(dir, -1), popi())
+			var dir = rotate_vec2i(dir, -1)
+			var offs = 1
+			while(tile_holder.operator_read_tile(pos + dir * offs) != 0):
+				offs += 1
+			tile_holder.operator_place_tile.operator_place_tile(pos + dir * offs, popi())
 		")":
-			tile_holder.operator_place_tile(pos + rotate_vec2i(dir, 1), popi())
+			var dir = rotate_vec2i(dir, 1)
+			var offs = 1
+			while(tile_holder.operator_read_tile(pos + dir * offs) != 0):
+				offs += 1
+			tile_holder.operator_place_tile(pos + dir * offs, popi())
 		"[":
 			pushi(tile_holder.operator_read_tile(pos + rotate_vec2i(dir, -1)))
 		"]":

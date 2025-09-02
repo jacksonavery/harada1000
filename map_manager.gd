@@ -65,7 +65,9 @@ func _unhandled_input(event: InputEvent) -> void:
 				indicator.force_flash()
 		
 		if event.keycode == KEY_ESCAPE:
-			get_viewport().gui_get_focus_owner().release_focus()
+			var own = get_viewport().gui_get_focus_owner()
+			if own:
+				own.release_focus()
 
 func _process(delta: float) -> void:
 	# start and stop occur on the start of a frame
