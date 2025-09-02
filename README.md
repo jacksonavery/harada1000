@@ -14,3 +14,5 @@ The `~` is a placeholder for the write-logical-left command `(`, and will be ove
 Also note the swap command `\`: it's performed twice a loop even though it only exists once because the operator paths through it twice.
 
 There's a lot of small quirks with the language. It's impossible to set a cell to value 32 because spaces are implicitly treated as 0s, for example. These may or may not be tackled anytime soon.
+
+I've added a screenshots folder so you can get an idea of the language, but keep in mind it's in flux and older code may be broken with new updates.
