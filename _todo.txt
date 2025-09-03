@@ -3,7 +3,7 @@ HARADA1000
 0-9 pushes that number to stack
 a-z pushes the ascii value of the letter to stack
 
-x	!	move -pop(a) if pop(b) not 0
+x	!	noop
 x	@	turn "left" if not 0
 x	#	turn "right" if not 0
 x	$	pop and discard

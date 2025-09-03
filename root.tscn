@@ -1,16 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpkn27wb4a2hy"]
+[gd_scene load_steps=9 format=3 uid="uid://cpkn27wb4a2hy"]
 
+[ext_resource type="Script" path="res://gane_root.gd" id="1_3xenu"]
 [ext_resource type="Script" path="res://map_manager.gd" id="1_sxlir"]
 [ext_resource type="Script" path="res://indicator.gd" id="2_dx8h0"]
 [ext_resource type="Script" path="res://cam.gd" id="3_q0sn3"]
 [ext_resource type="Script" path="res://operator_gui.gd" id="4_y4vxk"]
 [ext_resource type="Script" path="res://input_labels.gd" id="5_yqmkn"]
+[ext_resource type="Script" path="res://scorer_output.gd" id="7_p20os"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_udduq"]
 line_spacing = 0.0
 font_size = 48
 
 [node name="Node" type="Node"]
+script = ExtResource("1_3xenu")
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -98,10 +101,9 @@ script = ExtResource("5_yqmkn")
 [node name="InputLabel" type="TextEdit" parent="Node2D/Camera2D/Control/HBoxContainer/OutputGrader/VBoxContainer/HBoxContainer2/InputLabels"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "blasé"
+text = "slob on my knob"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Node2D/Camera2D/Control/HBoxContainer/OutputGrader/VBoxContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Node2D/Camera2D/Control/HBoxContainer/OutputGrader/VBoxContainer/HBoxContainer3"]
@@ -109,14 +111,14 @@ layout_mode = 2
 text = "Desired: "
 label_settings = SubResource("LabelSettings_udduq")
 
-[node name="InputLabels" type="HBoxContainer" parent="Node2D/Camera2D/Control/HBoxContainer/OutputGrader/VBoxContainer/HBoxContainer3"]
+[node name="DesiredOutputLabels" type="HBoxContainer" parent="Node2D/Camera2D/Control/HBoxContainer/OutputGrader/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme_override_constants/separation = 32
-script = ExtResource("5_yqmkn")
 
-[node name="InputLabel" type="Label" parent="Node2D/Camera2D/Control/HBoxContainer/OutputGrader/VBoxContainer/HBoxContainer3/InputLabels"]
+[node name="DesiredOutputLabel" type="Label" parent="Node2D/Camera2D/Control/HBoxContainer/OutputGrader/VBoxContainer/HBoxContainer3/DesiredOutputLabels"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "32"
+text = "17"
 label_settings = SubResource("LabelSettings_udduq")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Node2D/Camera2D/Control/HBoxContainer/OutputGrader/VBoxContainer"]
@@ -131,3 +133,6 @@ label_settings = SubResource("LabelSettings_udduq")
 unique_name_in_owner = true
 layout_mode = 2
 label_settings = SubResource("LabelSettings_udduq")
+
+[node name="Scorer" type="Node" parent="."]
+script = ExtResource("7_p20os")

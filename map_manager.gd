@@ -315,6 +315,12 @@ func decode_keycode(code):
 		return decodes[code]
 
 
+func is_complete():
+	for o in operators.get_children():
+		if o.dir != Vector2i.ZERO:
+			return false
+	return true
+
 # generate a lot of diff colors
 var color_index = 0
 func get_color() -> Color:

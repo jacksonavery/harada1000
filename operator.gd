@@ -66,9 +66,7 @@ func update(c: String, input_label: Node, tile_holder: Node):
 			pos += dir * popi()
 		# conditional redirection
 		"!":
-			var dist = popi()
-			if popi() != 0:
-				pos += -dir * dist
+			pass
 		"@":
 			if popi() != 0:
 				dir = rotate_vec2i(dir, -1)
@@ -137,7 +135,7 @@ func update(c: String, input_label: Node, tile_holder: Node):
 			var offs = 1
 			while(tile_holder.operator_read_tile(pos + dir * offs) != 0):
 				offs += 1
-			tile_holder.operator_place_tile.operator_place_tile(pos + dir * offs, popi())
+			tile_holder.operator_place_tile(pos + dir * offs, popi())
 		")":
 			var dir = rotate_vec2i(dir, 1)
 			var offs = 1
